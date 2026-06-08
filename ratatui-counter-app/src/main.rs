@@ -11,6 +11,6 @@ use ratatui::{
     DefaultTerminal, Frame,
 };
 
-fn main() {
-    println!("Hello, world!");
+fn main() -> io::Result<()> {
+    ratatui::run(|terminal| App::default().run(terminal))
 }
