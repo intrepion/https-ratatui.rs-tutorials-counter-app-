@@ -11,6 +11,12 @@ use ratatui::{
     DefaultTerminal, Frame,
 };
 
+#[derive(Debug, Default)]
+pub struct App {
+    counter: u8,
+    exit: bool,
+}
+
 fn main() -> io::Result<()> {
     ratatui::run(|terminal| App::default().run(terminal))
 }
