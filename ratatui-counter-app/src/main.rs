@@ -11,6 +11,10 @@ use ratatui::{
     DefaultTerminal, Frame,
 };
 
+fn main() -> io::Result<()> {
+    ratatui::run(|terminal| App::default().run(terminal))
+}
+
 #[derive(Debug, Default)]
 pub struct App {
     counter: u8,
@@ -18,7 +22,6 @@ pub struct App {
 }
 
 impl App {
-
     /// runs the application's main loop until the user quits
     pub fn run(&mut self, terminal: &mut DefaultTerminal) -> io::Result<()> {
         while !self.exit {
@@ -95,12 +98,9 @@ impl Widget for &App {
     }
 }
 
-fn main() -> io::Result<()> {
-    ratatui::run(|terminal| App::default().run(terminal))
-}
-
 #[cfg(test)]
 mod tests {
+
     use super::*;
     use ratatui::style::Style;
 
